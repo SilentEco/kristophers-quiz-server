@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const pool = require("./db");
-
 const port = process.env.PORT || 5000;
 
 //middleware
@@ -23,6 +22,17 @@ app.post("/name", async (req, res) => {
     res.json(NewName.rows[0]);
   } catch (err) {
     console.log(err.message);
+  }
+});
+
+//get all names
+
+app.get("/names", async (req, res) => {
+  try {
+    const allNames = await pool.query("SELECT name FROM score");
+    res.json(allNames.rows);
+  } catch (err) {
+    console.error(err.message);
   }
 });
 
