@@ -13,6 +13,6 @@ const proConfig = {
   connectionstring: process.env.DATABASE_URL,
 };
 
-const pool = new Pool(proConfig);
+const pool = new Pool(devConfig);
 
 module.exports = pool;
