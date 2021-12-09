@@ -1,8 +1,10 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-//const pool = require("./db");
-const port = process.env.PORT || 5000;
+const pool = require("./db");
+const PORT = process.env.PORT || 5000;
+
+//porcess.env.PORT
 
 //middleware
 app.use(cors());
@@ -76,6 +78,6 @@ app.put("/scores/:name", async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Server has started on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server has started on port ${PORT}`);
 });
