@@ -6,6 +6,9 @@
     "nodemon": "^2.0.15",
     "pg": "^8.7.1"
   },
+  "engines": {
+    "node": "16.8.0"
+  },
   "scripts": {
     "start": "nodemon index"
   },
