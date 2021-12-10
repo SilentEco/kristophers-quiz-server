@@ -62,6 +62,17 @@ app.get("/scores", async (req, res) => {
   }
 });
 
+app.get("/", async (req, res) => {
+  try {
+    const allScores = await pool.query(
+      "SELECT name, points FROM score ORDER BY points DESC"
+    );
+    res.json(allScores.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
 //update a score
 
 app.put("/scores/:name", async (req, res) => {
